@@ -1,0 +1,121 @@
+{% extends 'main_page.html' %}
+{% block title %} Booking {% endblock title%}
+{% load static %}
+
+{% block nav_item_rooms %}active{% endblock nav_item_rooms %}
+
+{% block body_content %}
+<div id="blog" class="section lb">
+	<div class="container mt-5">
+		<div class="section-title text-center">
+			<h3>Our Rooms</h3>
+			<p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4 col-sm-6 col-lg-4">
+				<div class="post-box">
+					<div class="post-thumb">
+						<img src={% static "images/i1.jpg" %} class="img-fluid" alt="post-img" />
+						
+					</div>
+					<div class="post-info">
+						<h4>Standard Rooms</h4>
+						<ul>
+							<li>by admin</li>
+							<li>Apr 21, 2018</li>
+						</ul>
+						<p>Etiam materials ut mollis tellus, vel posuere nulla. Etiam sit amet massa sodales aliquam at eget quam. Integer ultricies et magna quis.</p>
+						<div class="text-center mt-4"><a href="{% url 'booking' %}" class="sim-btn hvr-bounce-to-top pricingTable-signup">Book Now</a></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-lg-4">
+				<div class="post-box">
+					<div class="post-thumb">
+						<img src={% static "images/i2.jpg" %} class="img-fluid" alt="post-img" />
+						
+					</div>
+					<div class="post-info">
+						<h4>Double Standard Rooms</h4>
+						<ul>
+							<li>by admin</li>
+							<li>Apr 21, 2018</li>
+						</ul>
+						<p>Etiam materials ut mollis tellus, vel posuere nulla. Etiam sit amet massa sodales aliquam at eget quam. Integer ultricies et magna quis.</p>
+						<div class="text-center mt-4"><a href="{% url 'booking' %}" class="sim-btn hvr-bounce-to-top pricingTable-signup">Book Now</a></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-lg-4">
+				<div class="post-box">
+					<div class="post-thumb">
+						<img src={% static "images/room2.jpg" %} class="img-fluid" alt="post-img" />
+						</div>
+					<div class="post-info">
+						<h4>Executive Rooms</h4>
+						<ul>
+							<li>by admin</li>
+							<li>Apr 21, 2018</li>
+						</ul>
+						<p>Etiam materials ut mollis tellus, vel posuere nulla. Etiam sit amet massa sodales aliquam at eget quam. Integer ultricies et magna quis.</p>
+						<div class="text-center mt-4"><a href="{% url 'booking' %}" class="sim-btn hvr-bounce-to-top pricingTable-signup">Book Now</a></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-lg-4">
+				<div class="post-box">
+					<div class="post-thumb">
+						<img src={% static "images/room3.jpg" %} class="img-fluid" alt="post-img" />
+						
+					</div>
+					<div class="post-info">
+						<h4>Deluxe Rooms</h4>
+						<ul>
+							<li>by admin</li>
+							<li>Apr 21, 2018</li>
+						</ul>
+						<p>Etiam materials ut mollis tellus, vel posuere nulla. Etiam sit amet massa sodales aliquam at eget quam. Integer ultricies et magna quis.</p>
+						<div class="text-center mt-4"><a href="{% url 'booking' %}" class="sim-btn hvr-bounce-to-top pricingTable-signup">Book Now</a></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-lg-4 mt-lg-2">
+				<div class="post-box">
+					<div class="post-thumb">
+						<img src={% static "images/view.jpg" %} class="img-fluid" alt="post-img" />
+						
+					</div>
+					<div class="post-info">
+						<h4>Classic Suite</h4>
+						<ul>
+							<li>by admin</li>
+							<li>Apr 21, 2018</li>
+						</ul>
+						<p>Etiam materials ut mollis tellus, vel posuere nulla. Etiam sit amet massa sodales aliquam at eget quam. Integer ultricies et magna quis.</p>
+						<div class="text-center mt-4"><a href="{% url 'booking' %}" class="sim-btn hvr-bounce-to-top pricingTable-signup">Book Now</a></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-lg-4">
+				<div class="post-box">
+					<div class="post-thumb">
+						<img src={% static "images/room-5.jpg" %} class="img-fluid" alt="post-img" />
+						
+					</div>
+					<div class="post-info">
+						<h4>Presidential Suite</h4>
+						<ul>
+							<li>by admin</li>
+							<li>Apr 21, 2018</li>
+						</ul>
+						<p>Etiam materials ut mollis tellus, vel posuere nulla. Etiam sit amet massa sodales aliquam at eget quam. Integer ultricies et magna quis.</p>
+						<div class="text-center mt-4"><a href="{% url 'booking' %}" class="sim-btn hvr-bounce-to-top pricingTable-signup">Book Now</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock body_content %}
+		

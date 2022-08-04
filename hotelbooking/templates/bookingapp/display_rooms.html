@@ -1,0 +1,71 @@
+{% extends 'main_staff.html' %}
+{% block title %} Staff Page {% endblock title %}
+{% load static %}
+{% block edit_rooms %}active{% endblock edit_rooms %}
+
+{% block body_content %}
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-2">
+
+        </div>
+        <div class="col-10">
+            <div class="bg-light rounded h-100 p-4">
+                <h3 class="mb-4">Rooms Available</h3>
+                <div class="table-responsive">
+                    
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Rooms</th>
+                                <th scope="col">No Of Rooms</th>
+                                <th scope="col">Room Price</th>
+                                <th scope="col">Edit Rooms</th>
+                            </tr>
+                        </thead>
+                    </thead>
+                    {% if my_rooms %}
+        
+                    {% for theRooms in my_rooms %}
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span>{{theRooms.room_id}}</span>
+                                </td>
+                                <td>
+                                    <span>
+                                        {{theRooms.rooms}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span>
+                                        {{theRooms.number_of_rooms}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span>
+                                        {{theRooms.room_price}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <a href="{% url 'edit_room' theRooms.room_id %}">
+                                        <span>Edit</span>
+                                    </a>
+                                </td>
+                            </tr>    
+                        </tbody>
+                        {% endfor %}
+
+                        {% endif %} 
+                    </table>
+                      
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="{% url 'addRoom' %}" style="font-size: 20px;">Add More Rooms</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body_content %}

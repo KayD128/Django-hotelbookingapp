@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link href="img/favicon.ico" rel="icon">
+
+        {% load static %}
+
+        <link rel="shortcut icon" href={% static "images/brand.jpg" %} type="image/x-icon" />
+		<link rel="apple-touch-icon" href={% static "images/brand.jpg" %} />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <link href={% static "css/owl.carousel.min.css" %} rel="stylesheet">
+        <link href={% static "css/tempusdominus-bootstrap-4.min.css" %} rel="stylesheet" />
+
+		<link rel="stylesheet" href={% static "css/bootstrap.min.css" %}>
+		<link rel="stylesheet" href={% static "css/custom.css" %}>
+    </head>
+    <body>
+        <div class="sidebar pe-4 pb-3 pt-4">
+            <nav class="navbar bg-light navbar-light">
+                <a href="{% url 'staff' %}" class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-primary"><img src={% static "images/brand.jpg" %} alt="" width="35px" class="rounded-circle" />HOME</h3>
+                </a>
+                <a href="{% url 'staff_profile' user.id %}">
+                    <div class="d-flex align-items-center ms-4 mb-4">
+                        <div class="position-relative">
+                            <img class="rounded-circle" src="{{user.profile_passport.url}}" alt="" style="width: 40px; height: 40px;">
+                            <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                        </div>
+                        <div class="ms-3 mx-2">
+                            <h6 class="mb-0" style="color: black;"><span>{{user.first_name}} </span><span>{{user.last_name}}</span></h6>
+                            <span style="color: black;">Admin</span>
+                        </div>
+                    </div>
+                </a>
+                {% if user.is_staff %}
+                <div class="navbar-nav w-100 mt-4">
+                    {% if user.is_superuser %}
+                        <a class="nav-item nav-link {% block staff %}{% endblock staff %}" href="{% url 'manage_staff' %}"><i class="fa fa-laptop me-2"></i>Manage Staffs</a>
+                    {% endif %}
+                    <a href="{% url 'edit_profile' user.id %}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Edit Profile</a>
+                    <a href="{% url 'showRooms' %}" class="nav-link nav-link {% block edit_rooms %}{% endblock edit_rooms %}"><i class="far fa-file-alt me-2"></i>Edit Rooms</a>     
+                    <a href="{% url 'checkinView' %}" class="nav-item nav-link {% block check_guest_in %}{% endblock check_guest_in %}"><i class="fa fa-table me-2"></i>Check Guests In</a>
+                    <a href="{% url 'checkoutView' %}" class="nav-item nav-link {% block check_guest_out %}{% endblock check_guest_out %}"><i class="fa fa-chart-bar me-2"></i>Check Guests Out</a>
+                    <a href="{% url 'addRoom' %}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Add Rooms</a>
+                    {% endif %}
+                </div>
+            </nav>
+        </div>
+
+        {% block body_content %}
+
+		{% endblock body_content%}
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src={% static "js/main.js" %}></script>
+    </body>
+</html>

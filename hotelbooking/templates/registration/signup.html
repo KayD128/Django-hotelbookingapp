@@ -1,0 +1,24 @@
+{% extends 'index_main.html' %}
+{% block title%} Signup Page {% endblock title%}
+
+{% block body_content %}
+
+    <div id="mine">
+        <div id="div_wrapper" class="shadow-sm" style="height: auto;">
+            <h2 class="text-center mb-5">Luxury Hotel</h2>
+            <h3 class="text-center mb-3">Sign Up</h3>
+            <form action="" method="post">
+                {% csrf_token %}
+                {% load bootstrap %}
+                {{form|bootstrap}}
+                <div class="mb-4">
+                    <input type="submit" value="Register" class="btn bg-white bc-white mt-2 ml-2 loginbutton">                    
+                </div>
+                <div class="text-center">
+                    <p>Have an account? <a href="{% url 'login' %}">Log In</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock body_content %}

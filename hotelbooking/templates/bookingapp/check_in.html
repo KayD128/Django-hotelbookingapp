@@ -1,0 +1,110 @@
+{% extends 'main_staff.html' %}
+{% block title %} Staff Page {% endblock title %}
+{% load static %}
+{% block check_guest_in %}active{% endblock check_guest_in %}
+
+{% block body_content %}
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-2">
+
+        </div>
+        <div class="col-10">
+            <div class="bg-light rounded h-100 p-4">
+                <h3 class="mb-4">Hotel Guests</h3>
+                <div class="table-responsive">
+                    
+                    <table class="table" style="table-layout: auto; width: 500px;">
+                        <thead>
+                            <tr>
+                                <th scope="col" style="font-weight: bold;">#</th>
+                                <th scope="col" style="font-weight: bold;">First Name</th>
+                                <th scope="col" style="font-weight: bold;">Last Name</th>
+                                <th scope="col" style="font-weight: bold;">E-Mail</th>
+                                <th scope="col" style="font-weight: bold;">Phone Number</th>
+                                <th scope="col" style="font-weight: bold;">Check In Date</th>
+                                <th scope="col" style="font-weight: bold;">Check Out Date</th>
+                                <th scope="col" style="font-weight: bold;">Adults</th>
+                                <th scope="col" style="font-weight: bold;">Children</th>
+                                <th scope="col" style="font-weight: bold;">Room Booked</th>
+                                <th scope="col" style="font-weight: bold;">Room Key</th>
+                                <th scope="col" style="font-weight: bold; width: 200px;">Check In Link</th>
+                            </tr>
+                        </thead>
+                    </thead>
+                    {% if profile_details %}
+        
+                    {% for profile in profile_details %}
+                        <tbody>
+                            <tr>
+                                <td style="height:100px;">
+                                    <span>{{profile.check_in_id}}</span>
+                                </td>
+                                <td>
+                                    <span>
+                                        {{profile.first_name}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span>
+                                        {{profile.last_name}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span>
+                                        {{profile.mail}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span>
+                                        {{profile.phone_number}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span>
+                                        {{profile.potential_check_in}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span>
+                                        {{profile.potential_check_out}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span>
+                                        {{profile.number_of_adult}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span>
+                                        {{profile.number_of_children}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span>
+                                        {{profile.rooms}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span>
+                                        {{profile.key}}
+                                    </span>
+                                </td>
+                                <td>
+                                    <a href="{% url 'check_in' profile.check_in_id %}">
+                                        <button class="btn bg-primary" style="color: white; padding:10px;">Check In</button>
+                                    </a>
+                                </td>
+                            </tr>    
+                        </tbody>
+                        {% endfor %}
+
+                        {% endif %} 
+                    </table>
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body_content %}

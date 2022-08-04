@@ -1,0 +1,162 @@
+{% extends 'index_main.html' %}
+{% block title %} Staff Profile {% endblock title %}
+{% load static %}
+
+{% block nav_item_portal %}active{% endblock nav_item_portal %}
+
+{% block body_content %}
+
+{% if myProfile %}
+
+{% for profile in myProfile %}
+<div class="container" style="margin-top: 100px;">
+    <div class="row">
+        
+        <div class="col-8">
+            <h2 class="text-center">FULLSTAFF</h2>
+            
+            <table class="table table-striped">
+                <tr>
+                    <td>Staff ID:</td>
+                    <td>
+                        <span>
+                            {{profile.user_id}}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>FULLNAME:</td>
+                    <td>
+                        <span>
+                            {{profile.user.first_name}} {{profile.user.last_name}}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>USERNAME:</td>
+                    <td>
+                        <span>
+                            {{profile.user.username}}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>EMAIL ADDRESS:</td>
+                    <td>
+                        <span>
+                            {{profile.user.email}}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ADDRESS:</td>
+                    <td>
+                        <span>
+                            {{profile.address}}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>STATE:</td>
+                    <td>
+                        <span>
+                            {{profile.state}}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>NATIONALITY:</td>
+                    <td>
+                        <span>
+                            {{profile.nationality}}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Marital Status:</td>
+                    <td>
+                        <span>
+                            {{profile.marital_status}}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Position:</td>
+                    <td>
+                        <span>
+                            {{profile.position}}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date of Employment:</td>
+                    <td>
+                        <span>
+                            {{profile.user.date_joined}}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Means of Identification:</td>
+                    <td>
+                        <span>
+                            {% if profile.means_of_identity %}
+                            <img src="{{profile.means_of_identity.url}}" alt="">
+                            {% endif %}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Particulars:</td>
+                    <td>
+                        <span>
+                            {% if profile.particulars %} 
+                            <img src="{{profile.particulars.url}}" class="card-img img-fluid" alt="">
+                            {% endif %}
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Profile Status:</td>
+                    <td>
+                        <span>
+                            {{profile.status}}
+                        </span>
+                    </td>
+                </tr>
+                
+            </table>
+            
+        </div>
+        <div class="col-4">
+            {% if profile.profile_passport %}
+            <img src="{{profile.profile_passport.url}}" alt="" width="500px" height="800px">
+            {% else %}
+            <i class="fas fa-user fa-lg fa-fw text-dark me-2"></i>
+            {% endif %}
+        </div>
+        
+    </div>
+</div>
+{% if user.is_superuser %}
+<div class="text-center m-5">
+    <a href="{% url 'edit_profile' profile.user_id%}">
+        <button class="btn btn-lg bg-primary" style="color: white;">Edit Profile</button>
+    </a>
+    <a href="{% url 'deactivate' profile.user_id %}">
+        <button class="btn btn-lg bg-danger" type="submit" name="submit" value="" style="color: white;">
+            {% if user.is_active == 1 %}
+            Deactivate
+            {% else %}
+            Activate
+            {% endif %}
+        </button>
+    </a>
+</div>
+{% endif %}
+
+{% endfor %}
+
+{% endif %}
+
+{% endblock body_content %}

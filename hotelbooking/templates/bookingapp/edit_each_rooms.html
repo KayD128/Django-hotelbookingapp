@@ -1,0 +1,52 @@
+{% extends 'index_main.html' %}
+{% block title%} Rooms Form {% endblock title%}
+
+{% block body_content %}
+<div id="mine">
+    <div class="cont" id="div_wrapper" style="height: auto;">
+        {% if messages %}
+            {% for message in messages %}
+             {{message}}
+            {% endfor %}
+        {% endif %}
+        <div class="row">
+            <div class="way col-md-6 col-lg-6 col-xxl-6 col-sm-12 col-xm-12">
+                <form action="" method="post" class="mt-4" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% load bootstrap %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div>
+                                <h3 class="center">
+                                    {{room_name}}
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {{my_form.number_of_rooms}}
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                {{my_form.room_price}}
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <input type="submit" value="Update" class="btn bg-white bc-white mt-2 ml-2">
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock body_content %}
+

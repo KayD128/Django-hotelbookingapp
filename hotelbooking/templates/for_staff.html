@@ -1,0 +1,292 @@
+{% extends 'index_main.html' %}
+{% block title %} Luxury Hotel {% endblock title %}
+{% load static %}
+
+{% block nav_item_home %}active{% endblock nav_item_home %}
+
+{% block body_content %}
+<section id="home" class="main-banner parallaxie" style="background: url('/static/images/home2.jpg')">
+    <div class="heading">
+        <h1>Welcome to Luxury Hotel</h1>			
+        <h3 class="cd-headline clip is-full-width">
+            <span>Visit our Hotel and have the best time of your life</span>
+            {% if user.is_authenticated %}
+            <h2 class="text-white mt-3">
+                Welcome Back {{user.first_name}} {{user.last_name}}
+            </h2>
+            {% else %}
+            <div class="btn-ber">
+                <a class="get_btn hvr-bounce-to-top" href="{% url 'signup' %}">Sign Up</a>
+                <a class="learn_btn hvr-bounce-to-top" href="{% url 'login' %}">Log In</a>
+            </div>
+
+            {% endif %}
+            
+            <div class="" style="margin-top: 40px;">
+                <a class="btn bg-primary font-weight-bold" style="padding: 20px;border-radius: 25px;font-size: 20px;" href="{% url 'signup' %}">Book a Room</a>
+            </div>
+        </h3>
+    </div>
+</section>
+
+<div id="about" class="section wb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="message-box">                        
+                    <h2>Welcome to Luxury Hotel</h2>
+                    <p> Integer rutrum ligula eu dignissim laoreet. Pellentesque venenatis nibh sed tellus faucibus bibendum. Sed fermentum est vitae rhoncus molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed vitae rutrum neque. Ut id erat sit amet libero bibendum aliquam. Donec ac egestas libero, eu bibendum risus. Phasellus et congue justo. </p>
+                    <p>Sed vitae rutrum neque. Ut id erat sit amet libero bibendum aliquam. Donec ac egestas libero, eu bibendum risus. Phasellus et congue justo.</p>
+
+                    <a href="#" class="{% url 'contact' %}"><span>Contact Us Here</span></a>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="right-box-pro wow fadeIn">
+                    <img src={% static "images/host.jpg" %} alt="" class="img-fluid img-rounded">
+                </div><!-- end media -->
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div><!-- end section -->
+
+<div id="services" class="section lb">
+    <div class="container">
+        <div class="section-title text-center">
+            <h3>Our Facilities</h3>
+            <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p>
+        </div><!-- end title -->
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="services-inner-box">
+                    <div class="ser-icon">
+                        <i class="fa-solid fa-wifi"></i>
+                    </div>
+                    <h2>Free WiFi</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div><!-- end col -->
+            <div class="col-md-4">
+                <div class="services-inner-box">
+                    <div class="ser-icon">
+                        <i class="fa-solid fa-burger"></i>
+                    </div>
+                    <h2>Free Breakfast</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div><!-- end col -->
+            <div class="col-md-4">
+                <div class="services-inner-box">
+                    <div class="ser-icon">
+                        <i class="fa-solid fa-tv"></i>
+                    </div>
+                    <h2>Cable TV</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div><!-- end col -->
+            <div class="col-md-4">
+                <div class="services-inner-box">
+                    <div class="ser-icon">
+                        <i class="fa-solid fa-bed"></i>
+                    </div>
+                    <h2>Double Beds</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div><!-- end col -->
+            <div class="col-md-4">
+                <div class="services-inner-box">
+                    <div class="ser-icon">
+                        <i class="fa-solid fa-spa"></i>
+                    </div>
+                    <h2>Swimming Pool and Spa</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div><!-- end col -->
+            <div class="col-md-4">
+                <div class="services-inner-box">
+                    <div class="ser-icon">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+                    <h2>Wake Up Call</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</div><!-- end section -->
+<div id="team" class="section wb">
+    <div class="container">
+        <div class="section-title text-center">
+            <h3>Meet Our Staff</h3>
+            <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="our-team">
+                    <div class="pic">
+                        <img src={% static "images/head1.jpg" %}>
+                    </div>
+                    <div class="team-content">
+                        <h3 class="title">Kolade</h3>
+                        <span class="post">Owner &CEO</span>
+                        <ul class="social">
+                            <li><a href="#" class="fa fa-facebook"></a></li>
+                            <li><a href="#" class="fa fa-twitter"></a></li>
+                            <li><a href="#" class="fa fa-google-plus"></a></li>
+                            <li><a href="#" class="fa fa-skype"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-6">
+                <div class="our-team">
+                    <div class="pic">
+                        <img src={% static "images/head2.jpg" %}>
+                    </div>
+                    <div class="team-content">
+                        <h3 class="title">Miranda joy</h3>
+                        <span class="post">Hotel Manager</span>
+                        <ul class="social">
+                            <li><a href="#" class="fa fa-facebook"></a></li>
+                            <li><a href="#" class="fa fa-twitter"></a></li>
+                            <li><a href="#" class="fa fa-google-plus"></a></li>
+                            <li><a href="#" class="fa fa-skype"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-6">
+                <div class="our-team">
+                    <div class="pic">
+                        <img src={% static "images/head3.jpg" %}>
+                    </div>
+                    <div class="team-content">
+                        <h3 class="title">Williamson</h3>
+                        <span class="post">Head of Staff</span>
+                        <ul class="social">
+                            <li><a href="#" class="fa fa-facebook"></a></li>
+                            <li><a href="#" class="fa fa-twitter"></a></li>
+                            <li><a href="#" class="fa fa-google-plus"></a></li>
+                            <li><a href="#" class="fa fa-skype"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-6">
+                <div class="our-team">
+                    <div class="pic">
+                        <img src={% static "images/head4.jpg" %}  width="300px">
+                    </div>
+                    <div class="team-content">
+                        <h3 class="title">Steve Thomas</h3>
+                        <span class="post">Secretary</span>
+                        <ul class="social">
+                            <li><a href="#" class="fa fa-facebook"></a></li>
+                            <li><a href="#" class="fa fa-twitter"></a></li>
+                            <li><a href="#" class="fa fa-google-plus"></a></li>
+                            <li><a href="#" class="fa fa-skype"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="pricing" class="section lb">
+    <div class="container">
+        <div class="section-title text-center">
+            <h3>Rooms Pricing</h3>
+            <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p>
+        </div><!-- end title -->
+        
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <div class="pricingTable">
+                    <svg x="0" y="0" viewBox="0 0 360 220">
+                        <g>
+                            <path fill="#28a9e2" d="M0.732,193.75c0,0,29.706,28.572,43.736-4.512c12.976-30.599,37.005-27.589,44.983-7.061
+                                c8.09,20.815,22.83,41.034,48.324,27.781c21.875-11.372,46.499,4.066,49.155,5.591c6.242,3.586,28.729,7.626,38.246-14.243
+                                s27.202-37.185,46.917-8.488c19.715,28.693,38.687,13.116,46.502,4.832c7.817-8.282,27.386-15.906,41.405,6.294V0H0.48
+                                L0.732,193.75z"></path>
+                        </g>
+                        <text transform="matrix(1 0 0 1 69.7256 116.2686)" fill="#fff" font-size="43.4489">#40,000</text>
+                        <text transform="matrix(1 0 0 1 224.9629 115.5303)" fill="#fff" font-size="20.4128">/Night</text>
+                    </svg>
+                    <div class="pricing-content">
+                        <h3 class="title">Regular</h3>
+                        <ul class="pricing-content">
+                            <li><b>2</b> Twin Mattress</li>
+                            <li><b>20GB</b> Free Wifi</li>
+                            <li><b>50GB</b> Bandwidth</li>
+                            <li><b>10</b> Subdomains</li>
+                            <li><b>10</b> Domains</li>
+                        </ul>
+                        <a href="{% url 'booking' %}" class="sim-btn hvr-bounce-to-top pricingTable-signup">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <div class="pricingTable blue">
+                    <svg x="0" y="0" viewBox="0 0 360 220">
+                        <g>
+                            <path fill="#28a9e2" d="M0.732,193.75c0,0,29.706,28.572,43.736-4.512c12.976-30.599,37.005-27.589,44.983-7.061
+                                c8.09,20.815,22.83,41.034,48.324,27.781c21.875-11.372,46.499,4.066,49.155,5.591c6.242,3.586,28.729,7.626,38.246-14.243
+                                s27.202-37.185,46.917-8.488c19.715,28.693,38.687,13.116,46.502,4.832c7.817-8.282,27.386-15.906,41.405,6.294V0H0.48
+                                L0.732,193.75z"></path>
+                        </g>
+                        <text transform="matrix(1 0 0 1 69.7256 116.2686)" fill="#fff" font-size="43.4489">#80,000</text>
+                        <text transform="matrix(1 0 0 1 224.9629 115.5303)" fill="#fff" font-size="20.4128">/Night</text>
+                    </svg>
+                    <div class="pricing-content">
+                        <h3 class="title">Standard</h3>
+                        <ul class="pricing-content">
+                            <li><b>1</b> Full Mattress</li>
+                            <li><b>2</b> Water Heater</li>
+                            <li><b>60GB</b> Alarm</li>
+                            <li><b>15</b> Subdomains</li>
+                            <li><b>20</b> Domains</li>
+                        </ul>
+                        <a href="{% url 'booking' %}" class="sim-btn hvr-bounce-to-top pricingTable-signup">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <div class="pricingTable red">
+                    <svg x="0" y="0" viewBox="0 0 360 220">
+                        <g>
+                            <path fill="#28a9e2" d="M0.732,193.75c0,0,29.706,28.572,43.736-4.512c12.976-30.599,37.005-27.589,44.983-7.061
+                                c8.09,20.815,22.83,41.034,48.324,27.781c21.875-11.372,46.499,4.066,49.155,5.591c6.242,3.586,28.729,7.626,38.246-14.243
+                                s27.202-37.185,46.917-8.488c19.715,28.693,38.687,13.116,46.502,4.832c7.817-8.282,27.386-15.906,41.405,6.294V0H0.48
+                                L0.732,193.75z"></path>
+                        </g>
+                        <text transform="matrix(1 0 0 1 69.7256 116.2686)" fill="#fff" font-size="42.4489">#100,000</text>
+                        <text transform="matrix(1 0 0 1 245.9629 115.5303)" fill="#fff" font-size="20.4128">/Night</text>
+                    </svg>
+                    <div class="pricing-content">
+                        <h3 class="title">Elite</h3>
+                        <ul class="pricing-content">
+                            <li><b>1</b>King Sized Bed</li>
+                            <li><b>3</b> Free Delivery Meals</li>
+                            <li><b>70GB</b> Free Wifi</li>
+                            <li><b>2</b> Fully Operational AC</li>
+                            <li><b>25</b> Domains</li>
+                        </ul>
+                        <a href="{% url 'booking' %}" class="sim-btn hvr-bounce-to-top pricingTable-signup">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock body_content %}

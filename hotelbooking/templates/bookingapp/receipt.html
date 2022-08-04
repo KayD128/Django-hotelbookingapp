@@ -1,0 +1,45 @@
+{% extends 'index_main.html' %}
+{% block title%} Rooms Form {% endblock title%}
+
+{% block body_content %}
+
+<div class="container" style="margin: 100px auto;">
+    {% if check_out_details %}
+    {% for profile in check_out_details %}
+    <div class="col-md-12">
+        <header style="color: white; background-color: #4db8ff; padding-top: 20px;" class="text-center">
+            <h1>
+                Thank you for using our Hotel
+            </h1>
+            <h3>
+                GoodBye to Luxury Hotel
+            </h3>
+        </header>
+        <main style="background-color: white; padding: 50px;">
+            <div>
+                <p style="display: flex; justify-content: space-between;"><span>Bill To:</span><span style="text-align: left;">{{profile.booking_id}}</span></p>
+                <p style="display: flex; justify-content: space-between;"><span>Receipt Date:</span><span>{{profile.real_check_out}}</span></p>
+                <p><span>Invoice #2532</span></p> 
+            </div>
+
+            <div style="border-top: 3px solid black; border-bottom: 3px solid black;" class="text-center">
+                <h1 style="padding: 20px;"><span>Receipt Total: </span><span>#</span><span>{{profile.total_price}}</span></h1>
+            </div>
+            <div class="mt-4">
+                <p style="display: flex; justify-content: space-between;"><span>ID:</span><span>{{profile.booking_id}}</span></p>
+                <p style="display: flex; justify-content: space-between;"><span>Description:</span><span>{{profile.rooms}}</span></p>
+                <p style="display: flex; justify-content: space-between;"><span>Other Services:</span><span>#6,000</span></p>
+                <p style="display: flex; justify-content: space-between;"><span>Unit Amount:</span><span>#<span></span><span>{{profile.room_price}}</span></span></p>
+                <p style="display: flex; justify-content: space-between;"><span>Room Amount:</span><span><span>#</span><span>{{profile.total_price}}</span></span></p>
+                <p style="display: flex; justify-content: space-between;"><span>Total Amount:</span><span><span>#</span><span></span></span></p>
+            </div>
+            <div class="text-center">
+                <a href="{% url 'checkoutView' %}" class="text-center">Return To Browser</a>
+            </div>
+        </main>
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+
+{% endblock body_content %}
